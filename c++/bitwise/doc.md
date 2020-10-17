@@ -121,3 +121,65 @@ cout <<  z << endl;
 
 ### How to set $n^{th}$ bit ?
 
+* $1 | x = 1 $         ..(1)
+* $0|x = x$         ..(2)
+
+We have to make the $n^{th}$ bit 1 (using 1) and leave others unaffected (using 2).
+
+$0000...1^{n^{th}}...00$
+
+$d = d \lor (1 << n)$
+
+```c++
+void set(int& d , unsigned int n){
+	d = d | (1 << n);
+}
+```
+
+### How to reset $n^{th}$ bit? 
+
+* $1\&x = x$              ..(1)
+* $0\&x=0$               ..(2)
+
+We have to set $n_{th}$ bit 0 (using 2) and leave others unaffected (using 1).
+
+$1111...0^{n^{th}}...11$
+
+$d = d \land (\neg (1 << n))$
+
+```c++
+void reset(int& d , unsigned int n){
+	d = d & (~(1 << n))
+}
+```
+
+### Toggling a bit at $n^{th}$ position.
+
+* `1` ^ 1 = `0`;
+* `0` ^ 1 = `1`;
+
+$Xor$ with $1$ toggles a bit.
+
+To let others remain unaffected
+
+* `1` ^ 0 = `1`;
+* `0` ^ 0 = `0`;
+
+$d = d \oplus (1 << n)$
+
+### Negative numbers
+
+#### One's compliment 
+
+* This is ==not== the representation, most likely.
+* one's compliment = $\neg d$.
+
+#### Two's compliment
+
+* ==This is== the representation of negative numbers, most likely.
+* two's compliment = $-d$.
+
+==$\textrm{Two's compliment = One's compliment + 1}$==
+
+
+
