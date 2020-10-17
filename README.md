@@ -8,6 +8,6 @@ This repository contains my personal notes.
 
 ## Index
 
-* [c++ standard Library](c++/Standard C++ Library.md)
+* [c++ standard Library](c++/Standard_C++_Library.md)
 * [Bitwise algorithms](c++/bitwise/doc.md)
 
