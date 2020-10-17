@@ -124,6 +124,8 @@ long changed_l = static_cast<long>(b_l.to_ullong());
 
 ##### Logical operations
 
+See [here](bitwise/doc.md) for more.
+
 * Negation `~`inverts bits of the set.
 * Left shift `<<` and right shift `>>` are supported.
 * All binary operations $And,Or,Xor$ work if ==size of both sets is same==.
