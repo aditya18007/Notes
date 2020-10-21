@@ -7,14 +7,15 @@ Following explores the use of `mxn` matrices in `C++`.
 ####  Note
 
 We cannot use `2d​` `C-style` array if we don't know what will be the second dimension at compile time.
-$$
-\textrm{Suppose we have an } m \times n \textrm{ matrix,} \theta \\
-\theta[i][j] = *(\theta + n \times i + j)
-$$
-The compiler does something like this. This is because we don't actually have $2d$ memory.
+
+* The compiler does something like this.
+  * Suppose we have an  `m x n`  matrix, `P`
+    `P[i][j] = *(P + n*i + j)` 
+* This is because we don't actually have $2d$ memory.
 
 * The compiler creates `n` arrays of length`m`.
-* Therefore, we will use vectors.
+
+Therefore, we will use vectors.
 
 #### Method-1 
 
