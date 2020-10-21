@@ -51,7 +51,7 @@ main()
 
 ##### `>>`
 
-* $ss >> object$
+* `ss >> object​`
 
 * Open side can be thought of as reading from and pointed side as writing to.
 
@@ -66,7 +66,7 @@ main()
 
 ##### `<<`
 
-* $ss << object$
+* `ss << object​`
 
 * Put contents of an object to stream.
 
@@ -79,9 +79,9 @@ main()
 
 ### `bitset`
 
-* Bitset is a `bool` array $\textrm{whose size must be known at compile time}$.
+* Bitset is a `bool` array ==whose size must be known at compile time==.
 * It is optimised in such a way that each `bool` value takes only a bit.   
-* ==$0$-based indexing starts from left side. Left most bit is LSB.== 
+* ==`0`-based indexing starts from left side. Left most bit is LSB.== 
 
 #### #include
 
@@ -120,7 +120,7 @@ long changed_l = static_cast<long>(b_l.to_ullong());
 ##### `[]`
 
 * Can be Indexed just like an array.
-* ==$0$-based indexing starts from left side. Left most bit is LSB.== 
+* ==`0`-based indexing starts from left side. Left most bit is LSB.== 
 
 ##### Logical operations
 
@@ -128,7 +128,7 @@ See [here](bitwise/doc.md) for more.
 
 * Negation `~`inverts bits of the set.
 * Left shift `<<` and right shift `>>` are supported.
-* All binary operations $And,Or,Xor$ work if ==size of both sets is same==.
+* All binary operations `And`,`Or`,`Xor` work if ==size of both sets is same==.
 
 ##### `size()`
 
@@ -136,13 +136,13 @@ See [here](bitwise/doc.md) for more.
 
 ##### `count()`
 
-* Returns the total number of set $(1)$ bits in the set
+* Returns the total number of set (`1`) bits in the set
 
 ##### `flip()`/`flip(int n)`
 
 * ==Returns the new set==
 * `flip()` flips all the bits in the set.
-* `flip(int n)` flips the $n^{th}$ bit.
+* `flip(int n)` flips the n^th^ bit.
 
 ##### `none()`
 
@@ -158,14 +158,14 @@ See [here](bitwise/doc.md) for more.
 
 ##### `test(int n)`
 
-* returns true if $n^{th}$ bit is set.
+* returns true if n^th^ bit is set.
 
 ##### `set()` / `set(int n)`
 
-* `set()` sets all bits to $1$.
-* `set(int n)` sets $n^{th}$ bit to $1$.
+* `set()` sets all bits to 1.
+* `set(int n)` sets n^th^ bit to 1​.
 
 ##### `reset()` / `reset(int n)`
 
-* `reset()` sets all bits to $0$.
-* `reset(int n)` sets $n^{th}$ bit to $0$.
+* `reset()` sets all bits to 0​.
+* `reset(int n)` sets n^th^ bit to 0​.
