@@ -70,3 +70,87 @@ void printMatrix(vector<vector<int>>& M){
 }
 ```
 
+## Rotations
+
+### Rotate a matrix clockwise
+
+| **prev** | **prev** | **prev** | **prev** | **prev** | **prev** |
+| :------: | :------: | :------: | :------: | :------: | :------: |
+| **prev** |  x `>`   |  x `>`   |  x `>`   |  x `V`   | **prev** |
+| **prev** |  `^` x   | **next** | **next** |  x `V`   | **prev** |
+| **prev** |  `^` x   | **next** | **next** |  x `V`   | **prev** |
+| **prev** |  `^` x   |  `<` x   |  `<` x   |  `<` x   | **prev** |
+| **prev** | **prev** | **prev** | **prev** | **prev** | **prev** |
+
+* Idea is to move around the matrix in square rings.
+* `prev` above shows previous ring, which is processed.
+* `X` shows the current ring which is being processed.
+  * `arrow` along with `X` show the direction in which current position moves.
+* `next` shows the next ring which will be processed.
+
+Ring can be identified by four indices:
+
+* `left` : left most column of ring.
+* `right`: right most column of ring.
+* `top`: top most column of ring.
+* `bottom`: lowest column of ring.
+
+Suppose the matrix is `m x n` matrix `M`.
+
+Here is how we traverse rings
+
+```c++
+void rotate(vector<vector<int>>& M, int left, int right, int top, int bottom){
+    /*
+     Left to right (columns)
+     Top to Bottom (rows)
+     Right to Left (columns)
+     Bottom to Top (rows)
+     */
+ 	if(right <= left || bottom <= top){
+        return;
+    }
+	//Processing   
+    rotate(M, left+1, right-1, top+1, bottom-1);
+}
+```
+
+Processing: 
+
+* Start from `M[top][left]`. Store its value in `prev`.
+* Move all the way till `M[top][right]`, setting `prev` value here and updating `prev`.
+* Likewise, Go from `M[top][right]` -> `M[bottom][right]`-> `M[bottom][left]` -> `M[top][left]` .
+
+```c++
+int prev = -1;;
+
+prev = M[top][left];
+
+for(int c = left+1; c <= right ; c++){
+    int curr = M[top][c];
+    M[top][c] = prev;
+    prev = curr;
+}
+
+
+for(int r  = top+1; r <= bottom ; r++){
+    int curr = M[r][right];
+    M[r][right] = prev;
+    prev = curr; 
+}
+
+
+for(int c = right-1; c >= left ; c--){
+    int curr = M[bottom][c];
+    M[bottom][c] = prev;
+    prev = curr;
+}
+
+
+for(int r = bottom-1; r >= top ; r--){
+    int curr = M[r][left];
+    M[r][left] = prev;
+    prev = curr;
+}
+```
+
