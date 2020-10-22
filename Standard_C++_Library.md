@@ -77,7 +77,7 @@ main()
   ss << 12;
   ```
 
-### `bitset`
+### `std::bitset`
 
 * Bitset is a `bool` array ==whose size must be known at compile time==.
 * It is optimised in such a way that each `bool` value takes only a bit.   
@@ -169,3 +169,93 @@ See [here](bitwise/doc.md) for more.
 
 * `reset()` sets all bits to 0​.
 * `reset(int n)` sets n^th^ bit to 0​.
+
+### `std::map`
+
+Dictionary. Equivalent to Java `HashMap` .
+
+#### #include
+
+```c++
+#include <map> 
+  
+using namespace std; 
+
+```
+
+#### Constructor
+
+Creating an empty map.
+
+```c++
+map<int,int> Map;
+```
+
+#### Methods
+
+##### Put a `(key,value)`
+
+```c++
+Map[key] = value;
+```
+
+##### Check if a key exists
+
+* We have to use `Map.find(key)`
+
+```c++
+if(Map.find(key) == Map.end()){
+	// Key not present
+} else {
+	// KEy present
+}
+```
+
+##### Iterating over `(Key,Value)`
+
+###### Using iterator
+
+```c++
+#include <iterator> 
+#include <map>
+
+map<string, int>::iterator it;
+
+for ( it = symbolTable.begin(); it != symbolTable.end(); it++ )
+{
+    std::cout << it->first  // string (key)
+              << ':'
+              << it->second   // string's value 
+              << std::endl ;
+}
+
+```
+
+###### With *C++11* ( and on wards )
+
+```c++
+for (auto const& x : symbolTable)
+{
+    std::cout << x.first  // string (key)
+              << ':' 
+              << x.second // string's value 
+              << std::endl ;
+}
+```
+
+###### With C++17 (and on wards)
+
+```c++
+for( auto const& [key, val] : symbolTable )
+{
+    std::cout << key         // string (key)
+              << ':'  
+              << val        // string's value
+              << std::endl ;
+}
+```
+
+### `std::set`
+
+* Ordered set of elements.
+* Equivalent to Java `TreeSet`.
